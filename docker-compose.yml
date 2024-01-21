@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  grocerybookingapi:
+    image: grocerybookingapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_HOST: ${DATABASE_HOST}
+      NODE_ENV: production
+    ports:
+      - 3000:3000
